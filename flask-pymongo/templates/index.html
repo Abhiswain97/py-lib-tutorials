@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <center>
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <center>
+        <h1>{{ message }}</h1>
+      </center>
+      {% endfor %} {% endif %} {% endwith %}
+      <h1>Student Info</h1>
+      <form action="{{ url_for('get_data') }}" method="POST">
+        Name: <input type="text" name="name" id="name" /> <br />
+        Score: <input type="text" name="score" id="score" /> <br />
+        <button type="submit">submit</button>
+      </form>
+    </center>
+  </body>
+</html>
